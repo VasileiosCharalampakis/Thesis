@@ -14,7 +14,7 @@ The diploma thesis “Software development for the assessment of the safety prov
 
 ## Available Resources
 
-- **[PDF (Greek)](Thesis_Vasileios_Charalampakis.pdf):** For Greek speakers, the full thesis document is available, including detailed methodology and instructions.
+- **[Download PDF (Greek)](Thesis_Vasileios_Charalampakis.pdf):** For Greek speakers, the full thesis document is available, including detailed methodology and instructions.
 - **[USAGE (English)](USAGE.md):** A brief guide on how to use the software for English-speaking users. Includes instructions on installation, basic usage, and parameters.
 
 ## License
