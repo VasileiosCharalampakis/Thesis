@@ -18,4 +18,4 @@ The diploma thesis “Software development for the assessment of the safety prov
 - **USAGE (English) - (USAGE.md):** A brief guide on how to use the software for English-speaking users. Includes instructions on installation, basic usage, and parameters.
 
 ## License
-MIT License
+MIT License -  See the [LICENSE](LICENSE) file for details.
