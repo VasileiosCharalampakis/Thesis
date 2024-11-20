@@ -1,7 +1,6 @@
-# Thesis
-MATLAB application for assessing the safety of typical grounding configurations in high-voltage installations based on IEEE and CELENEC standards.
+# Thesis: ¨Software development for the assessment of the safety provided by typical grounding configurations of high-voltage installations"
 
-## Software development for the assessment of the safety provided by typical grounding configurations of high-voltage installations
+MATLAB application for assessing the safety of typical grounding configurations in high-voltage installations based on IEEE and CELENEC standards.
 
 # Description:
 This repository contains the implementation of a software tool developed for the assessment of safety provided by typical grounding configurations of high-voltage installations. The software was developed in MATLAB and evaluates safety based on two standard grounding configurations: IEEE and CENELEC.
