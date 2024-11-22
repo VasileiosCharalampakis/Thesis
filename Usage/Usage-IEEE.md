@@ -53,8 +53,9 @@ There could be several of those in a system.**
 
 
 ### Output Data
+1. Plotting of Time-Current characteristic(s) of the protective device(s) curve.
 
-1. Plotting of the basic safety performance curves (IG-ρtouch and IG-ρstep curves) and (IG-Rg,touch and IG-Rg,step curves). These include all relevant curves corresponding to the protective devices of the system.
+2. Plotting of the basic safety performance curves (IG-ρtouch and IG-ρstep curves) and (IG-Rg,touch and IG-Rg,step curves). These include all relevant curves corresponding to the protective devices of the system.
 
-2. Addition of point(s) showing the corresponding case(s) examined. The plot for each specific case include only the relevant curves corresponding to the protective devices of this case.
+3. Addition of point(s) showing the corresponding case(s) examined. The plot for each specific case include only the relevant curves corresponding to the protective devices of this case.
 
