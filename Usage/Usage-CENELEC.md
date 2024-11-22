@@ -24,8 +24,8 @@ Ensure the following files are in the same directory or project folder within MA
 
 You are now ready to proceed with the steps specific to the CENELEC standard.
 
-##How to Use
-###Input Data
+## How to Use
+### Input Data
 
 1. **(user input)** Time-current characteristic(s) of the protective device(s).
 2. **(user input)** Geometric proportionality factor, kg.
@@ -52,4 +52,10 @@ The above refer to a specific typical configuration.**
 **The above refer to specific installations of the typical grounding configuration. 
 There could be several of those in a system.**
 
+
+### Output Data
+
+1. Plotting of the basic safety performance curves (IG-ρtouch curve) and (IG-Rg,touch curve).
+   
+2. Addition of point showing the corresponding case examined.
 
