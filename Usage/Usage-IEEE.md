@@ -21,6 +21,7 @@ Ensure that the following files are in the same directory or project folder with
 - Create a new project or working folder.
 - Copy all the required files into the folder.
 - Verify that MATLAB's **Current Folder** is set to the folder containing these files.
+- Run `SafetyAssessmentSoftware.mlapp`.
 
 You are now ready to proceed with the steps specific to the IEEE standard.
 
