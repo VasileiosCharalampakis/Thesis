@@ -55,7 +55,9 @@ There could be several of those in a system.**
 
 ### Output Data
 
-1. Plotting of the basic safety performance curves (IG-ρtouch curve) and (IG-Rg,touch curve).
+1. Plotting of Time-Current characteristic(s) of the protective device(s) curve.
+
+2. Plotting of the basic safety performance curves (IG-ρtouch curve) and (IG-Rg,touch curve).
    
-2. Addition of point showing the corresponding case examined.
+3. Addition of point showing the corresponding case examined.
 
