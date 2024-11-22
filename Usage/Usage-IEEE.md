@@ -9,7 +9,7 @@ Make sure you have MATLAB installed on your computer. You can download it from t
 
 ### 2. Required Files
 Ensure the following files are in the same directory or project folder within MATLAB:
-- [`SafetyAssessmentSoftware.mlapp`]
+- [`SafetyAssessmentSoftware.mlapp`](AppFiles/SafetyAssessmentSoftware.mlapp)
 - `UTp(tf)_new.txt`
 - `ZT(UTp)_new.txt`
 - `Test.txt`
