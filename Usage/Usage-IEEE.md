@@ -34,7 +34,7 @@ You are now ready to proceed with the steps specific to the IEEE standard.
 5. Calculation of maximum allowable voltage limits according to IEEE Std 80. **Selection by the user, Yes or No:** Use of high resistivity surface material?
 6. **If yes: (user input)** resistivity, ρs, and thickness of the surface material layer, hs.
 7. **(user input)** Resistance of the human body (typical value 1000 Ω).
-8. **(user input)** k factor related to tolerable electric shock energy (typical values 0.116 and 0.157 As^0.5).
+8. **(user input)** k factor related to tolerable electric shock energy (typical values 0.116 and 0.157 As^(0.5)).
 9. **(user input)** Maximum value of maximum grid current for the construction of the figures showing the safety performance curves. Input of the minimum value as well.
 
 **Up to this point here: The safety performance curves can be plotted.
