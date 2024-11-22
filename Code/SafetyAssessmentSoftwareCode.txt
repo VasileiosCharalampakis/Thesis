@@ -1,0 +1,1685 @@
+classdef SafetyAssessmentSoftware < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        SafetyAssessmentSoftwareAppUIFigure  matlab.ui.Figure
+        TabGroup                        matlab.ui.container.TabGroup
+        IEEETab                         matlab.ui.container.Tab
+        TimeCurrentCharacteristicsPanel  matlab.ui.container.Panel
+        TimeEditField                   matlab.ui.control.NumericEditField
+        CurrentEditField                matlab.ui.control.NumericEditField
+        AddPointButton                  matlab.ui.control.Button
+        ImportDataButton                matlab.ui.control.Button
+        PlotCharacteristicsButton       matlab.ui.control.Button
+        ClearPlotButton                 matlab.ui.control.Button
+        CurrentAEditFieldLabel          matlab.ui.control.Label
+        TimesEditFieldLabel             matlab.ui.control.Label
+        VariablesforSafetyCurvePanel    matlab.ui.container.Panel
+        rorRgDropDown                   matlab.ui.control.DropDown
+        kgmsup1supEditField             matlab.ui.control.NumericEditField
+        ktEditField                     matlab.ui.control.NumericEditField
+        ksEditField                     matlab.ui.control.NumericEditField
+        UseofrsCheckBox                 matlab.ui.control.CheckBox
+        rsEditField                     matlab.ui.control.NumericEditField
+        hsEditField                     matlab.ui.control.NumericEditField
+        BodyResEditField                matlab.ui.control.NumericEditField
+        kEditField                      matlab.ui.control.NumericEditField
+        MingridcurEditField             matlab.ui.control.NumericEditField
+        MaxgridcurEditField             matlab.ui.control.NumericEditField
+        PlotSafetyCurveButton           matlab.ui.control.Button
+        EtouchButton                    matlab.ui.control.Button
+        EstepButton                     matlab.ui.control.Button
+        ClearPlotButton_2               matlab.ui.control.Button
+        rorRgDropDownLabel              matlab.ui.control.Label
+        MaxgridcurEditFieldLabel        matlab.ui.control.Label
+        MingridcurLabel                 matlab.ui.control.Label
+        kEditFieldLabel                 matlab.ui.control.Label
+        BodyResLabel                    matlab.ui.control.Label
+        hsEditFieldLabel                matlab.ui.control.Label
+        rsEditFieldLabel                matlab.ui.control.Label
+        ksEditFieldLabel                matlab.ui.control.Label
+        ktEditFieldLabel                matlab.ui.control.Label
+        kgmsup1supEditFieldLabel        matlab.ui.control.Label
+        PointCheckPanel                 matlab.ui.container.Panel
+        CalcofIGCheckBox                matlab.ui.control.CheckBox
+        IGEditField                     matlab.ui.control.NumericEditField
+        IfEditField                     matlab.ui.control.NumericEditField
+        SfEditField                     matlab.ui.control.NumericEditField
+        CalcofDfCheckBox                matlab.ui.control.CheckBox
+        DfEditField                     matlab.ui.control.NumericEditField
+        XRratioEditField                matlab.ui.control.NumericEditField
+        tfEditField                     matlab.ui.control.NumericEditField
+        rEditField                      matlab.ui.control.NumericEditField
+        PlotPointsButton                matlab.ui.control.Button
+        rEditFieldLabel                 matlab.ui.control.Label
+        tfEditFieldLabel                matlab.ui.control.Label
+        XRratioEditFieldLabel           matlab.ui.control.Label
+        DfEditFieldLabel                matlab.ui.control.Label
+        SfEditFieldLabel                matlab.ui.control.Label
+        IfEditFieldLabel                matlab.ui.control.Label
+        IGEditFieldLabel                matlab.ui.control.Label
+        TimeCurrentandSafetyCurvePlotsPanel  matlab.ui.container.Panel
+        UIAxes                          matlab.ui.control.UIAxes
+        UIAxes2                         matlab.ui.control.UIAxes
+        CENELECTab                      matlab.ui.container.Tab
+        TimeCurrentCharacteristicsPanel_2  matlab.ui.container.Panel
+        TimeEditField_2                 matlab.ui.control.NumericEditField
+        CurrentEditField_2              matlab.ui.control.NumericEditField
+        AddPointButton_2                matlab.ui.control.Button
+        ImportDataButton_2              matlab.ui.control.Button
+        PlotCharacteristicsButton_2     matlab.ui.control.Button
+        ClearPlotButton_3               matlab.ui.control.Button
+        CurrentEditField_2Label         matlab.ui.control.Label
+        TimeEditField_2Label            matlab.ui.control.Label
+        VariablesforSafetyCurvePanel_2  matlab.ui.container.Panel
+        rorRgDropDown_2                 matlab.ui.control.DropDown
+        kgEditField_2                   matlab.ui.control.NumericEditField
+        ktEditField_2                   matlab.ui.control.NumericEditField
+        ksEditField_2                   matlab.ui.control.NumericEditField
+        UseofrsCheckBox_2               matlab.ui.control.CheckBox
+        rsEditField_2                   matlab.ui.control.NumericEditField
+        RF1EditField                    matlab.ui.control.NumericEditField
+        HFEditField                     matlab.ui.control.NumericEditField
+        BFEditField                     matlab.ui.control.NumericEditField
+        MingridcurEditField_2           matlab.ui.control.NumericEditField
+        MaxgridcurEditField_2           matlab.ui.control.NumericEditField
+        PlotSafetyCurveButton_2         matlab.ui.control.Button
+        UVTpButton                      matlab.ui.control.Button
+        ClearPlotButton_4               matlab.ui.control.Button
+        RF1Label                        matlab.ui.control.Label
+        rorRgDropDownLabel_2            matlab.ui.control.Label
+        MaxgridcurEditFieldLabel_2      matlab.ui.control.Label
+        MingridcurEditFieldLabel        matlab.ui.control.Label
+        BFEditFieldLabel                matlab.ui.control.Label
+        HFEditFieldLabel                matlab.ui.control.Label
+        rsEditFieldLabel_2              matlab.ui.control.Label
+        ksEditField_2Label              matlab.ui.control.Label
+        ktLabel                         matlab.ui.control.Label
+        kgEditField_2Label              matlab.ui.control.Label
+        PointCheckPanel_2               matlab.ui.container.Panel
+        CalcofIGCheckBox_2              matlab.ui.control.CheckBox
+        IGEditField_2                   matlab.ui.control.NumericEditField
+        IfEditField_2                   matlab.ui.control.NumericEditField
+        SfEditField_2                   matlab.ui.control.NumericEditField
+        CalcofDfCheckBox_2              matlab.ui.control.CheckBox
+        DfEditField_2                   matlab.ui.control.NumericEditField
+        XRratioEditField_2              matlab.ui.control.NumericEditField
+        tfEditField_2                   matlab.ui.control.NumericEditField
+        rEditField_2                    matlab.ui.control.NumericEditField
+        PlotPointsButton_2              matlab.ui.control.Button
+        rEditFieldLabel_2               matlab.ui.control.Label
+        tfEditFieldLabel_2              matlab.ui.control.Label
+        XRratioEditField_2Label         matlab.ui.control.Label
+        DfEditFieldLabel_2              matlab.ui.control.Label
+        SfEditFieldLabel_2              matlab.ui.control.Label
+        IfEditFieldLabel_2              matlab.ui.control.Label
+        IGEditFieldLabel_2              matlab.ui.control.Label
+        TimeCurrentandSafetyCurvePlotsPanel_2  matlab.ui.container.Panel
+        UIAxes3                         matlab.ui.control.UIAxes
+        UIAxes4                         matlab.ui.control.UIAxes
+    end
+
+    
+    properties (Access = private)
+        TimeCurrentMatrix = []
+        Etouch
+        Estep
+        TimeCurrentMatrix_2 = []
+        UVTp
+    end
+    
+
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Button pushed function: AddPointButton
+        function AddPointButtonPushed(app, event)
+           
+            time = app.TimeEditField.Value;
+            current = app.CurrentEditField.Value;
+            app.TimeCurrentMatrix = [app.TimeCurrentMatrix; time, current];
+
+        end
+
+        % Button pushed function: ImportDataButton
+        function ImportDataButtonPushed(app, event)
+            
+            [filename, ~] = uigetfile('*.txt');
+            if isequal(filename, 0)
+                msgbox('File not found!', 'Error');
+            else
+                data = importdata(filename);
+                app.TimeCurrentMatrix = data;
+            end
+
+        end
+
+        % Button pushed function: PlotCharacteristicsButton
+        function PlotCharacteristicsButtonPushed(app, event)
+            
+            if isempty(app.TimeCurrentMatrix)
+                msgbox('Enter Time and Current values!','Error');
+            else
+                time = app.TimeCurrentMatrix(:, 1);
+                current = app.TimeCurrentMatrix(:, 2);
+                plot(app.UIAxes, time, current, 'o');
+                grid(app.UIAxes, 'on');
+                xlabel(app.UIAxes, 'Time (s)');
+                ylabel(app.UIAxes, 'Current (A)');
+            end
+
+        end
+
+        % Button pushed function: ClearPlotButton
+        function ClearPlotButtonPushed(app, event)
+            
+            cla(app.UIAxes, 'reset');
+            xlabel(app.UIAxes, 'Time (s)');
+            ylabel(app.UIAxes, 'Current (A)');
+            app.TimeCurrentMatrix = [];
+            app.TimeEditField.Value = 0;
+            app.CurrentEditField.Value = 0;
+
+        end
+
+        % Value changed function: UseofrsCheckBox
+        function UseofrsCheckBoxValueChanged(app, event)
+            value = app.UseofrsCheckBox.Value;
+
+            switch value
+                case 0
+                    app.rsEditFieldLabel.Visible = 'off';
+                    app.rsEditField.Visible = 'off';
+                    app.hsEditFieldLabel.Visible = 'off';
+                    app.hsEditField.Visible = 'off';
+                case 1
+                    app.rsEditFieldLabel.Visible = 'on';
+                    app.rsEditField.Visible = 'on';
+                    app.hsEditFieldLabel.Visible = 'on';
+                    app.hsEditField.Visible = 'on';
+            end
+            
+        end
+
+        % Button pushed function: PlotSafetyCurveButton
+        function PlotSafetyCurveButtonPushed(app, event)
+            kg = app.kgmsup1supEditField.Value;
+            kt = app.ktEditField.Value;
+            ks = app.ksEditField.Value;
+            rs = app.rsEditField.Value;
+            hs = app.hsEditField.Value;
+            RB = app.BodyResEditField.Value;
+            k = app.kEditField.Value;
+            mingc = app.MingridcurEditField.Value;
+            maxgc = app.MaxgridcurEditField.Value;
+
+            safetyCurvePanel = app.VariablesforSafetyCurvePanel;
+            variables = safetyCurvePanel.Children;
+            allZeros = false;
+
+            for i = 1:length(variables)
+                var = variables(i);
+                if app.UseofrsCheckBox.Value
+                    if isa(var, 'matlab.ui.control.NumericEditField') && ~strcmp(var.Tag, 'mingc')
+                        if var.Value == 0
+                            allZeros = true;
+                            break; 
+                        end
+                    end
+                else
+                    if isa(var, 'matlab.ui.control.NumericEditField') && ~strcmp(var.Tag, 'mingc') && ~strcmp(var.Tag, 'rs') && ~strcmp(var.Tag, 'hs')
+                        if var.Value == 0
+                            allZeros = true;
+                            break; 
+                        end
+                    end
+                end
+            end
+
+            if allZeros
+                msgbox('Enter values for safety curve!', 'Error');
+            else
+                if app.UseofrsCheckBox.Value
+                    if isempty(app.TimeCurrentMatrix)
+                        msgbox('Enter Time and Current values!', 'Error');
+                    else
+                        ts = app.TimeCurrentMatrix(:, 1);
+                        IG = app.TimeCurrentMatrix(:, 2);
+
+                        rtouch = zeros(size(IG));
+                        rstep = zeros(size(IG));
+                        Cs = zeros(size(rstep));
+                        app.Etouch = zeros(size(ts));
+                        app.Estep = zeros(size(ts));
+
+
+                        for i = 1:size(app.TimeCurrentMatrix, 1)
+                            rtouch(i) = (k*(RB + 1.5*rs)*(2*hs + 0.09) - 1.5*0.09*k*rs) / (kt*kg*IG(i)*sqrt(ts(i))*(2*hs + 0.09) - 1.5*0.09*k);
+                            rstep(i)  = (k*(RB + 6*rs)*(2*hs + 0.09) - 6*0.09*k*rs) / (ks*kg*IG(i)*sqrt(ts(i))*(2*hs + 0.09) - 6*0.09*k);
+
+                            Cs(i) = 1 - (0.09*(1 - rstep(i)/rs)) / (2*hs + 0.09);
+                            app.Etouch(i) = (RB + 1.5*Cs(i)*rs) * (k / sqrt(ts(i)));
+                            app.Estep(i)  = (RB + 6*Cs(i)*rs) * (k / sqrt(ts(i)));
+                        end
+
+                        Rgtouch = kg * rtouch;
+                        Rgstep = kg * rstep;
+
+                        switch app.rorRgDropDown.Value
+                            case 'ρ'
+                                if  rtouch < rstep
+                                    semilogx(app.UIAxes2, rtouch, IG, 'bo');
+                                    hold(app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, rtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                else
+                                    semilogx(app.UIAxes2, rstep, IG, 'ro');
+                                    hold (app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, rstep, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                end
+                            case 'Rg'
+                                if  Rgtouch < Rgstep
+                                    semilogx(app.UIAxes2, Rgtouch, IG, 'bo');
+                                    hold (app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, Rgtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                else
+                                    semilogx(app.UIAxes2, Rgstep, IG, 'ro');
+                                    hold (app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, Rgstep, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                end
+                         end
+                    end
+                else
+                    if isempty(app.TimeCurrentMatrix)
+                        msgbox('Enter Time and Current values!', 'Error');
+                    else
+                        Cs = 1; 
+                        ts = app.TimeCurrentMatrix(:, 1);
+                        IG = app.TimeCurrentMatrix(:, 2);
+                        
+                        rtouch = zeros(size(IG));
+                        rstep = zeros(size(IG));
+                        app.Etouch = zeros(size(ts));
+                        app.Estep = zeros(size(ts));
+
+                        for i = 1:size(app.TimeCurrentMatrix, 1)
+                            rtouch(i) = (RB*k) / ((kt*kg*IG(i)*sqrt(ts(i))) - (1.5*k));
+                            rstep(i)  = (RB*k) / ((ks*kg*IG(i)*sqrt(ts(i))) - (6*k));
+                            app.Etouch(i) = (RB + 1.5*Cs) * (k / sqrt(ts(i)));
+                            app.Estep(i)  = (RB + 6*Cs) * (k / sqrt(ts(i)));
+                        end
+                        
+                
+                
+                        Rgtouch = kg * rtouch;
+                        Rgstep = kg * rstep;
+                
+                        switch app.rorRgDropDown.Value
+                            case 'ρ' 
+                                if  rtouch < rstep
+                                    semilogx(app.UIAxes2, rtouch, IG, 'bo');
+                                    hold (app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, rtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                else 
+                                    semilogx(app.UIAxes2, rstep, IG, 'ro');
+                                    hold (app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, rstep, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                end
+                             case 'Rg'
+                                if  Rgtouch < Rgstep
+                                    semilogx(app.UIAxes2, Rgtouch, IG, 'bo');
+                                    hold (app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, Rgtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                else
+                                    semilogx(app.UIAxes2, Rgstep, IG, 'ro');
+                                    hold (app.UIAxes2, 'on');
+                                    xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                                    ylabel(app.UIAxes2, 'IG (A)');
+                                    xlim(app.UIAxes2, [mingc, maxgc]);
+                                    ylim(app.UIAxes2, [mingc, maxgc]);
+                                    %area(app.UIAxes2, Rgstep, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                    grid(app.UIAxes2, 'on');
+                                end
+                        end
+                    end
+                end
+            end
+                    
+        end
+
+        % Button pushed function: EtouchButton
+        function EtouchButtonPushed(app, event)
+
+            EtouchValues = zeros(size(app.Etouch));
+
+            for i = 1:length(app.Etouch)
+                EtouchValues(i) = app.Etouch(i);
+            end
+
+            EtouchValuesText = sprintf('Etouch values are:\n');
+            
+            EtouchValuesText = [EtouchValuesText, sprintf('%f\n', EtouchValues)];
+
+            msgbox(EtouchValuesText, 'Etouch Values');
+
+
+        end
+
+        % Button pushed function: EstepButton
+        function EstepButtonPushed(app, event)
+            
+            EstepValues = zeros(size(app.Estep));
+
+            for i = 1:length(app.Estep)
+                EstepValues(i) = app.Estep(i);
+            end
+            EstepValuesText = sprintf('Estep values are:\n');
+            
+            EstepValuesText = [EstepValuesText, sprintf('%f\n', EstepValues)];
+           
+            msgbox(EstepValuesText, 'Estep Values');
+
+        end
+
+        % Button pushed function: ClearPlotButton_2
+        function ClearPlotButton_2Pushed(app, event)
+                
+                cla(app.UIAxes2, 'reset');
+                xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)');
+                ylabel(app.UIAxes2, 'IG (A)');
+                app.kgmsup1supEditField.Value = 0;  
+                app.ktEditField.Value = 0;
+                app.ksEditField.Value = 0;
+                if app.UseofrsCheckBox.Value ~= 0
+                    app.rsEditField.Value = 0;
+                    app.hsEditField.Value = 0;
+                end
+                app.BodyResEditField.Value = 1000;
+                app.kEditField.Value = 0;
+                app.MingridcurEditField.Value = 0;
+                app.MaxgridcurEditField.Value = 0;
+                app.Etouch = [];
+                app.Estep = [];
+                
+
+        end
+
+        % Value changed function: CalcofIGCheckBox
+        function CalcofIGCheckBoxValueChanged(app, event)
+            value = app.CalcofIGCheckBox.Value;
+            
+            switch value
+                case 0
+                    app.IGEditFieldLabel.Visible = 'on';
+                    app.IGEditField.Visible = 'on';
+                    app.IfEditFieldLabel.Visible = 'off';
+                    app.IfEditField.Visible = 'off';
+                    app.SfEditFieldLabel.Visible = 'off';
+                    app.SfEditField.Visible = 'off';
+                    app.CalcofDfCheckBox.Visible = 'off';
+                    app.DfEditFieldLabel.Visible = 'off';
+                    app.DfEditField.Visible = 'off';
+                    app.XRratioEditFieldLabel.Visible = 'off';
+                    app.XRratioEditField.Visible = 'off';
+                    app.tfEditFieldLabel.Visible = 'off';
+                    app.tfEditField.Visible = 'off';
+                case 1
+                    app.IGEditFieldLabel.Visible = 'off';
+                    app.IGEditField.Visible = 'off';
+                    app.IfEditFieldLabel.Visible = 'on';
+                    app.IfEditField.Visible = 'on';
+                    app.SfEditFieldLabel.Visible = 'on';
+                    app.SfEditField.Visible = 'on';
+                    app.CalcofDfCheckBox.Visible = 'on';
+                    app.DfEditFieldLabel.Visible = 'on';
+                    app.DfEditField.Visible = 'on';
+                    app.XRratioEditFieldLabel.Visible = 'off';
+                    app.XRratioEditField.Visible = 'off';
+                    app.tfEditFieldLabel.Visible = 'off';
+                    app.tfEditField.Visible = 'off';
+            end
+
+        end
+
+        % Value changed function: CalcofDfCheckBox
+        function CalcofDfCheckBoxValueChanged(app, event)
+            value = app.CalcofDfCheckBox.Value;
+            
+            switch value
+                case 0
+                    app.DfEditFieldLabel.Visible = 'on';
+                    app.DfEditField.Visible = 'on';
+                    app.XRratioEditFieldLabel.Visible = 'off';
+                    app.XRratioEditField.Visible = 'off';
+                    app.tfEditFieldLabel.Visible = 'off';
+                    app.tfEditField.Visible = 'off';
+                case 1
+                    app.DfEditFieldLabel.Visible = 'off';
+                    app.DfEditField.Visible = 'off';
+                    app.XRratioEditFieldLabel.Visible = 'on';
+                    app.XRratioEditField.Visible = 'on';
+                    app.tfEditFieldLabel.Visible = 'on';
+                    app.tfEditField.Visible = 'on';
+            end
+
+        end
+
+        % Button pushed function: PlotPointsButton
+        function PlotPointsButtonPushed(app, event)
+            
+            kg = app.kgmsup1supEditField.Value;
+            IGG = app.IGEditField.Value;
+            If = app.IfEditField.Value;
+            Sf = app.SfEditField.Value;
+            Df = app.DfEditField.Value;
+            XR = app.XRratioEditField.Value;
+            tf = app.tfEditField.Value;
+            r = app.rEditField.Value;
+            
+            Rg = kg * r;
+
+            if app.CalcofIGCheckBox.Value == 0
+                if app.rorRgDropDown.Value == 'ρ'
+                    plot(app.UIAxes2, r, IGG, 'go');
+                else
+                    plot(app.UIAxes2, Rg, IGG, 'go');
+                end
+            else
+                if app.CalcofDfCheckBox.Value == 0
+                    IGG = If * Sf * Df;
+                    if app.rorRgDropDown.Value == 'ρ'
+                        plot(app.UIAxes2, r, IGG, 'go');
+                    else
+                        plot(app.UIAxes2, Rg, IGG, 'go');
+                    end
+                else
+                    p = pi;
+                    Ta = XR * (1/(120*p));
+                    Df = sqrt(1 + (Ta/tf)*(1 - exp((-2*tf)/Ta)));
+                    IGG = If * Sf * Df;
+                    if app.rorRgDropDown.Value == 'ρ'
+                        plot(app.UIAxes2, r, IGG, 'go');
+                    else
+                       plot(app.UIAxes2, Rg, IGG, 'go');
+                    end
+                end
+            end
+            
+
+        end
+
+        % Button pushed function: AddPointButton_2
+        function AddPointButton_2Pushed(app, event)
+            
+            time = app.TimeEditField_2.Value;
+            current = app.CurrentEditField_2.Value;
+            app.TimeCurrentMatrix_2 = [app.TimeCurrentMatrix_2; time, current];
+
+        end
+
+        % Button pushed function: ImportDataButton_2
+        function ImportDataButton_2Pushed(app, event)
+            
+            [filename, ~] = uigetfile('*.txt');
+            if isequal(filename, 0)
+                msgbox('File not found!', 'Error');
+            else
+                data = importdata(filename);
+                app.TimeCurrentMatrix_2 = data;
+            end
+
+        end
+
+        % Button pushed function: PlotCharacteristicsButton_2
+        function PlotCharacteristicsButton_2Pushed(app, event)
+            
+            if isempty(app.TimeCurrentMatrix_2)
+                msgbox('Enter Time and Current values!','Error');
+            else
+                time = app.TimeCurrentMatrix_2(:, 1);
+                current = app.TimeCurrentMatrix_2(:, 2);
+                plot(app.UIAxes3, time, current, 'o');
+                grid(app.UIAxes3, 'on');
+                xlabel(app.UIAxes3, 'Time (s)');
+                ylabel(app.UIAxes3, 'Current (A)');
+            end
+
+        end
+
+        % Button pushed function: ClearPlotButton_3
+        function ClearPlotButton_3Pushed(app, event)
+             
+            cla(app.UIAxes3, 'reset');
+            xlabel(app.UIAxes3, 'Time (s)');
+            ylabel(app.UIAxes3, 'Current (A)');
+            app.TimeCurrentMatrix_2 = [];
+            app.TimeEditField_2.Value = 0;
+            app.CurrentEditField_2.Value = 0;
+
+        end
+
+        % Value changed function: UseofrsCheckBox_2
+        function UseofrsCheckBox_2ValueChanged(app, event)
+            value = app.UseofrsCheckBox_2.Value;
+            
+            switch value
+                case 0
+                    app.rsEditFieldLabel_2.Visible = 'off';
+                    app.rsEditField_2.Visible = 'off';
+                case 1
+                    app.rsEditFieldLabel_2.Visible = 'on';
+                    app.rsEditField_2.Visible = 'on';
+            end
+            
+        end
+
+        % Button pushed function: PlotSafetyCurveButton_2
+        function PlotSafetyCurveButton_2Pushed(app, event)
+            
+            kg = app.kgEditField_2.Value;
+            kt = app.ktEditField_2.Value;
+            ks = app.ksEditField_2.Value;
+            rs = app.rsEditField_2.Value;
+            RF1 = app.RF1EditField.Value;
+            HF = app.HFEditField.Value;
+            BF = app.BFEditField.Value;
+            mingc = app.MingridcurEditField_2.Value;
+            maxgc = app.MaxgridcurEditField_2.Value;
+
+            safetyCurvePanel = app.VariablesforSafetyCurvePanel_2;
+            variables = safetyCurvePanel.Children;
+            allZeros = false;
+
+            for i = 1:length(variables)
+                var = variables(i);
+                if app.UseofrsCheckBox_2.Value
+                    if isa(var, 'matlab.ui.control.NumericEditField') && ~strcmp(var.Tag, 'mingc') && ~strcmp(var.Tag, 'RF1')
+                        if var.Value == 0
+                            allZeros = true;
+                            break; 
+                        end
+                    end
+                else
+                    if isa(var, 'matlab.ui.control.NumericEditField') && ~strcmp(var.Tag, 'mingc') && ~strcmp(var.Tag, 'rs') && ~strcmp(var.Tag, 'RF1')
+                        if var.Value == 0
+                            allZeros = true;
+                            break; 
+                        end
+                    end
+                end
+            end
+
+            if allZeros
+                msgbox('Enter values for safety curve!', 'Error');
+            else
+            
+                filename = 'UTp(tf)_new.txt';
+                data = importdata(filename);
+                tf = data(:, 1);
+                UTp = data(:, 2);
+            
+                filename = 'ZT(UTp)_new.txt';
+                data = importdata(filename);
+                ZT = data(:, 1);
+                UTpp = data(:, 2);
+                
+                if (app.UseofrsCheckBox_2.Value)
+                    if isempty(app.TimeCurrentMatrix_2)
+                        msgbox('Enter Time and Current values!', 'Error');
+                    else
+                        RF = RF1 + 1.5*rs;
+                        time = app.TimeCurrentMatrix_2(:, 1);
+                        IG = app.TimeCurrentMatrix_2(:, 2);
+                        if length(UTp) ~= length(UTpp)
+                            UTp_new = interp1(tf, UTp, time, 'linear');
+                            ZT_new = interp1(UTpp, ZT, UTp_new, 'linear');
+                            format shortG;
+
+                            for i = 1:length(ZT_new)
+                                app.UVTp(i) = UTp_new(i) + RF*UTp_new(i)/ZT_new(i);
+                            end
+
+                            rtouch = zeros(size(IG));
+
+                            for i = 1:length(IG)
+                                rtouch(i) = (UTp_new(i)*(ZT_new(i) + RF1 + 1.5*rs)) / (kt*kg*IG(i)*ZT_new(i)); 
+                            end
+                        else
+                            format shortG;
+                            rtouch = zeros(size(IG));
+
+                            if length(UTp) < length(IG)
+                                for i = 1:length(UTp)
+                                    rtouch(i) = (UTp(i)*(ZT(i) + RF1 + 1.5*rs)) / (kt*kg*IG(i)*ZT(i));
+                                end
+                            else 
+                                for i = 1:length(IG)
+                                    rtouch(i) = (UTp(i)*(ZT(i) + RF1 + 1.5*rs)) / (kt*kg*IG(i)*ZT(i));
+                                end
+                            end
+
+                            for i = 1:length(UTp)
+                                app.UVTp(i) = UTp(i) + RF*UTp(i)/ZT(i);
+                            end
+                        end
+                        
+                        Rgtouch = kg * rtouch;
+
+                        switch app.rorRgDropDown_2.Value
+                            case 'ρ'
+                                semilogx(app.UIAxes4, rtouch, IG, 'bo');
+                                hold(app.UIAxes4, 'on');
+                                xlabel(app.UIAxes4, 'ρ or Rg (Ωm or Ω)');
+                                ylabel(app.UIAxes4, 'IG (A)');
+                                xlim(app.UIAxes4, [mingc, maxgc]);
+                                ylim(app.UIAxes4, [mingc, maxgc]);
+                                %area(app.UIAxes4, rtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                grid(app.UIAxes4, 'on');
+                            case 'Rg'
+                                semilogx(app.UIAxes4, Rgtouch, IG, 'bo');
+                                hold(app.UIAxes4, 'on');
+                                xlabel(app.UIAxes4, 'ρ or Rg (Ωm or Ω)');
+                                ylabel(app.UIAxes4, 'IG (A)');
+                                xlim(app.UIAxes4, [mingc, maxgc]);
+                                ylim(app.UIAxes4, [mingc, maxgc]);
+                                %area(app.UIAxes4, Rgtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                grid(app.UIAxes4, 'on');
+                        end
+                    end
+                else
+                    if isempty(app.TimeCurrentMatrix_2)
+                        msgbox('Enter Time and Current values!', 'Error');
+                    else
+                        RF = RF1;
+                        time = app.TimeCurrentMatrix_2(:, 1);
+                        IG = app.TimeCurrentMatrix_2(:, 2);
+                        
+                        if length(UTp) ~= length(UTpp)
+                            UTp_new = interp1(tf, UTp, time, 'linear');
+                            ZT_new = interp1(UTpp, ZT, UTp_new, 'linear');
+                            format short G;
+                            rtouch = zeros(size(IG));
+                            
+                            for i = 1:length(IG)
+                                rtouch(i) = (UTp_new(i)*(ZT_new(i) + RF1) / (kt*kg*IG(i)*ZT_new(i) - 1.5*UTp_new(i)));
+                            end
+
+                            for i = 1:length(ZT_new)
+                                app.UVTp(i) = UTp_new(i) + RF*UTp_new(i)/ZT_new(i);
+                            end
+
+                        else
+                            format short G;
+                            rtouch = zeros(size(IG));
+                            
+                            if length(UTp) < length(IG)
+                                for i = 1:length(UTp)
+                                    rtouch(i) = (UTp(i)*(ZT(i) + RF1) / (kt*kg*IG(i)*ZT(i) - 1.5*(i)));
+                                end
+                            else
+                                for i = 1:length(IG)
+                                    rtouch(i) = (UTp(i)*(ZT(i) + RF1) / (kt*kg*IG(i)*ZT(i) - 1.5*(i)));
+                                end
+                            end
+                            for i = 1:length(UTp)
+                                app.UVTp(i) = UTp(i) + RF*UTp(i)/ZT(i);
+                            end
+
+                        end
+
+                        Rgtouch = kg * rtouch;
+                
+                        switch app.rorRgDropDown_2.Value
+                            case 'ρ'
+                                semilogx(app.UIAxes4, rtouch, IG, 'bo');
+                                hold(app.UIAxes4, 'on');
+                                xlabel(app.UIAxes4, 'ρ or Rg (Ωm or Ω)');
+                                ylabel(app.UIAxes4, 'IG (A)');
+                                xlim(app.UIAxes4, [mingc, maxgc]);
+                                ylim(app.UIAxes4, [mingc, maxgc]);
+                                %area(app.UIAxes4, rtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                grid(app.UIAxes4, 'on');
+                             case 'Rg'
+                                semilogx(app.UIAxes4, Rgtouch, IG, 'bo');
+                                hold(app.UIAxes4, 'on');
+                                xlabel(app.UIAxes4, 'ρ or Rg (Ωm or Ω)');
+                                ylabel(app.UIAxes4, 'IG (A)');
+                                xlim(app.UIAxes4, [mingc, maxgc]);
+                                ylim(app.UIAxes4, [mingc, maxgc]);
+                                %area(app.UIAxes4, Rgtouch, IG, 'FaceColor', 'blue', 'FaceAlpha', 0.2);
+                                grid(app.UIAxes4, 'on');
+                        end
+                    end
+                end
+            end
+
+        end
+
+        % Button pushed function: UVTpButton
+        function UVTpButtonPushed(app, event)
+            
+            UVTpValues = zeros(size(app.UVTp));
+
+            for i = 1:length(app.UVTp)
+                UVTpValues(i) = app.UVTp(i);
+            end
+
+            nanIndices = isnan(app.UVTp);
+            UVTpClear = app.UVTp(~nanIndices);
+
+            UVTpValuesText = sprintf('UVTp values are:\n');
+            
+            UVTpValuesText = [UVTpValuesText, sprintf('%f\n', UVTpClear)];
+
+            msgbox(UVTpValuesText, 'UVTp Values');
+
+        end
+
+        % Button pushed function: ClearPlotButton_4
+        function ClearPlotButton_4Pushed(app, event)
+            
+                cla(app.UIAxes4, 'reset');
+                xlabel(app.UIAxes4, 'ρ or Rg (Ωm or Ω)');
+                ylabel(app.UIAxes4, 'IG (A)');
+                app.kgEditField_2.Value = 0;  
+                app.ktEditField_2.Value = 0;
+                app.ksEditField_2.Value = 0;
+                if app.UseofrsCheckBox_2.Value ~= 0
+                    app.rsEditField_2.Value = 0;
+                end
+                app.RF1EditField.Value = 1000;
+                app.HFEditField.Value = 0;
+                app.BFEditField.Value = 0;
+                app.MingridcurEditField_2.Value = 0;
+                app.MaxgridcurEditField_2.Value = 0;
+                app.UVTp = [];
+
+        end
+
+        % Value changed function: CalcofIGCheckBox_2
+        function CalcofIGCheckBox_2ValueChanged(app, event)
+            value = app.CalcofIGCheckBox_2.Value;
+            
+            switch value
+                case 0
+                    app.IGEditFieldLabel_2.Visible = 'on';
+                    app.IGEditField_2.Visible = 'on';
+                    app.IfEditFieldLabel_2.Visible = 'off';
+                    app.IfEditField_2.Visible = 'off';
+                    app.SfEditFieldLabel_2.Visible = 'off';
+                    app.SfEditField_2.Visible = 'off';
+                    app.CalcofDfCheckBox_2.Visible = 'off';
+                    app.DfEditFieldLabel_2.Visible = 'off';
+                    app.DfEditField_2.Visible = 'off';
+                    app.XRratioEditField_2Label.Visible = 'off';
+                    app.XRratioEditField_2.Visible = 'off';
+                    app.tfEditFieldLabel_2.Visible = 'off';
+                    app.tfEditField_2.Visible = 'off';
+                case 1
+                    app.IGEditFieldLabel_2.Visible = 'off';
+                    app.IGEditField_2.Visible = 'off';
+                    app.IfEditFieldLabel_2.Visible = 'on';
+                    app.IfEditField_2.Visible = 'on';
+                    app.SfEditFieldLabel_2.Visible = 'on';
+                    app.SfEditField_2.Visible = 'on';
+                    app.CalcofDfCheckBox_2.Visible = 'on';
+                    app.DfEditFieldLabel_2.Visible = 'on';
+                    app.DfEditField_2.Visible = 'on';
+                    app.XRratioEditField_2Label.Visible = 'off';
+                    app.XRratioEditField_2.Visible = 'off';
+                    app.tfEditFieldLabel_2.Visible = 'off';
+                    app.tfEditField_2.Visible = 'off';
+            end
+
+        end
+
+        % Value changed function: CalcofDfCheckBox_2
+        function CalcofDfCheckBox_2ValueChanged(app, event)
+            value = app.CalcofDfCheckBox_2.Value;
+            
+            switch value
+                case 0
+                    app.DfEditFieldLabel_2.Visible = 'on';
+                    app.DfEditField_2.Visible = 'on';
+                    app.XRratioEditField_2Label.Visible = 'off';
+                    app.XRratioEditField_2.Visible = 'off';
+                    app.tfEditFieldLabel_2.Visible = 'off';
+                    app.tfEditField_2.Visible = 'off';
+                case 1
+                    app.DfEditFieldLabel_2.Visible = 'off';
+                    app.DfEditField_2.Visible = 'off';
+                    app.XRratioEditField_2Label.Visible = 'on';
+                    app.XRratioEditField_2.Visible = 'on';
+                    app.tfEditFieldLabel_2.Visible = 'on';
+                    app.tfEditField_2.Visible = 'on';
+            end
+
+        end
+
+        % Button pushed function: PlotPointsButton_2
+        function PlotPointsButton_2Pushed(app, event)
+            
+            kg = app.kgEditField_2.Value;
+            IGG = app.IGEditField_2.Value;
+            If = app.IfEditField_2.Value;
+            Sf = app.SfEditField_2.Value;
+            Df = app.DfEditField_2.Value;
+            XR = app.XRratioEditField_2.Value;
+            tf = app.tfEditField_2.Value;
+            r = app.rEditField_2.Value;
+            
+            Rg = kg * r;
+
+            if app.CalcofIGCheckBox_2.Value == 0
+                if app.rorRgDropDown_2.Value == 'ρ'
+                    plot(app.UIAxes4, r, IGG, 'go');
+                else
+                    plot(app.UIAxes4, Rg, IGG, 'go');
+                end
+            else
+                if app.CalcofDfCheckBox_2.Value == 0
+                    IGG = If * Sf * Df;
+                    if app.rorRgDropDown_2.Value == 'ρ'
+                        plot(app.UIAxes4, r, IGG, 'go');
+                    else
+                        plot(app.UIAxes4, Rg, IGG, 'go');
+                    end
+                else
+                    p = pi;
+                    Ta = XR * (1/(120*p));
+                    Df = sqrt(1 + (Ta/tf)*(1 - exp((-2*tf)/Ta)));
+                    IGG = If * Sf * Df;
+                    if app.rorRgDropDown_2.Value == 'ρ'
+                        plot(app.UIAxes4, r, IGG, 'go');
+                    else
+                       plot(app.UIAxes4, Rg, IGG, 'go');
+                    end
+                end
+            end
+            
+        end
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create SafetyAssessmentSoftwareAppUIFigure and hide until all components are created
+            app.SafetyAssessmentSoftwareAppUIFigure = uifigure('Visible', 'off');
+            app.SafetyAssessmentSoftwareAppUIFigure.Position = [100 100 654 682];
+            app.SafetyAssessmentSoftwareAppUIFigure.Name = 'SafetyAssessmentSoftwareApp';
+
+            % Create TabGroup
+            app.TabGroup = uitabgroup(app.SafetyAssessmentSoftwareAppUIFigure);
+            app.TabGroup.Position = [2 0 653 683];
+
+            % Create IEEETab
+            app.IEEETab = uitab(app.TabGroup);
+            app.IEEETab.Title = 'IEEE';
+            app.IEEETab.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.IEEETab.ForegroundColor = [1 0 0];
+
+            % Create TimeCurrentandSafetyCurvePlotsPanel
+            app.TimeCurrentandSafetyCurvePlotsPanel = uipanel(app.IEEETab);
+            app.TimeCurrentandSafetyCurvePlotsPanel.TitlePosition = 'centertop';
+            app.TimeCurrentandSafetyCurvePlotsPanel.Title = 'Time-Current and Safety Curve Plots';
+            app.TimeCurrentandSafetyCurvePlotsPanel.BackgroundColor = [0.0588 1 1];
+            app.TimeCurrentandSafetyCurvePlotsPanel.FontWeight = 'bold';
+            app.TimeCurrentandSafetyCurvePlotsPanel.FontSize = 14;
+            app.TimeCurrentandSafetyCurvePlotsPanel.Position = [205 -2 448 462];
+
+            % Create UIAxes2
+            app.UIAxes2 = uiaxes(app.TimeCurrentandSafetyCurvePlotsPanel);
+            title(app.UIAxes2, 'IG-ρ or IG-Rg')
+            xlabel(app.UIAxes2, 'ρ or Rg (Ωm or Ω)')
+            ylabel(app.UIAxes2, 'IG (A)')
+            zlabel(app.UIAxes2, 'Z')
+            app.UIAxes2.Position = [5 4 439 190];
+
+            % Create UIAxes
+            app.UIAxes = uiaxes(app.TimeCurrentandSafetyCurvePlotsPanel);
+            title(app.UIAxes, 'Time-Current Characteristics')
+            xlabel(app.UIAxes, 'Time (s)')
+            ylabel(app.UIAxes, 'Current (A)')
+            zlabel(app.UIAxes, 'Z')
+            app.UIAxes.Position = [4 223 436 201];
+
+            % Create PointCheckPanel
+            app.PointCheckPanel = uipanel(app.IEEETab);
+            app.PointCheckPanel.TitlePosition = 'centertop';
+            app.PointCheckPanel.Title = 'Point Check';
+            app.PointCheckPanel.BackgroundColor = [0.0588 1 1];
+            app.PointCheckPanel.FontWeight = 'bold';
+            app.PointCheckPanel.FontSize = 14;
+            app.PointCheckPanel.Position = [204 459 449 199];
+
+            % Create IGEditFieldLabel
+            app.IGEditFieldLabel = uilabel(app.PointCheckPanel);
+            app.IGEditFieldLabel.HorizontalAlignment = 'right';
+            app.IGEditFieldLabel.Position = [16 120 37 22];
+            app.IGEditFieldLabel.Text = 'IG (A)';
+
+            % Create IfEditFieldLabel
+            app.IfEditFieldLabel = uilabel(app.PointCheckPanel);
+            app.IfEditFieldLabel.HorizontalAlignment = 'right';
+            app.IfEditFieldLabel.Visible = 'off';
+            app.IfEditFieldLabel.Position = [16 81 31 22];
+            app.IfEditFieldLabel.Text = 'If (A)';
+
+            % Create SfEditFieldLabel
+            app.SfEditFieldLabel = uilabel(app.PointCheckPanel);
+            app.SfEditFieldLabel.HorizontalAlignment = 'right';
+            app.SfEditFieldLabel.Visible = 'off';
+            app.SfEditFieldLabel.Position = [6 61 48 22];
+            app.SfEditFieldLabel.Text = 'Sf (p.u.)';
+
+            % Create DfEditFieldLabel
+            app.DfEditFieldLabel = uilabel(app.PointCheckPanel);
+            app.DfEditFieldLabel.HorizontalAlignment = 'right';
+            app.DfEditFieldLabel.Visible = 'off';
+            app.DfEditFieldLabel.Position = [284 121 48 22];
+            app.DfEditFieldLabel.Text = 'Df (p.u.)';
+
+            % Create XRratioEditFieldLabel
+            app.XRratioEditFieldLabel = uilabel(app.PointCheckPanel);
+            app.XRratioEditFieldLabel.HorizontalAlignment = 'right';
+            app.XRratioEditFieldLabel.Visible = 'off';
+            app.XRratioEditFieldLabel.Position = [274 84 52 22];
+            app.XRratioEditFieldLabel.Text = 'X/R ratio';
+
+            % Create tfEditFieldLabel
+            app.tfEditFieldLabel = uilabel(app.PointCheckPanel);
+            app.tfEditFieldLabel.HorizontalAlignment = 'right';
+            app.tfEditFieldLabel.Visible = 'off';
+            app.tfEditFieldLabel.Position = [296 63 29 22];
+            app.tfEditFieldLabel.Text = 'tf (s)';
+
+            % Create rEditFieldLabel
+            app.rEditFieldLabel = uilabel(app.PointCheckPanel);
+            app.rEditFieldLabel.HorizontalAlignment = 'right';
+            app.rEditFieldLabel.Position = [151 38 42 22];
+            app.rEditFieldLabel.Text = 'ρ (Ωm)';
+
+            % Create PlotPointsButton
+            app.PlotPointsButton = uibutton(app.PointCheckPanel, 'push');
+            app.PlotPointsButton.ButtonPushedFcn = createCallbackFcn(app, @PlotPointsButtonPushed, true);
+            app.PlotPointsButton.Position = [208 8 100 23];
+            app.PlotPointsButton.Text = 'Plot Point(s)';
+
+            % Create rEditField
+            app.rEditField = uieditfield(app.PointCheckPanel, 'numeric');
+            app.rEditField.Limits = [0 Inf];
+            app.rEditField.Position = [208 39 100 22];
+
+            % Create tfEditField
+            app.tfEditField = uieditfield(app.PointCheckPanel, 'numeric');
+            app.tfEditField.Limits = [0 Inf];
+            app.tfEditField.Visible = 'off';
+            app.tfEditField.Position = [340 63 100 22];
+
+            % Create XRratioEditField
+            app.XRratioEditField = uieditfield(app.PointCheckPanel, 'numeric');
+            app.XRratioEditField.Limits = [0 Inf];
+            app.XRratioEditField.Visible = 'off';
+            app.XRratioEditField.Position = [340 84 100 22];
+
+            % Create DfEditField
+            app.DfEditField = uieditfield(app.PointCheckPanel, 'numeric');
+            app.DfEditField.Limits = [0 Inf];
+            app.DfEditField.Visible = 'off';
+            app.DfEditField.Position = [340 122 100 22];
+
+            % Create CalcofDfCheckBox
+            app.CalcofDfCheckBox = uicheckbox(app.PointCheckPanel);
+            app.CalcofDfCheckBox.ValueChangedFcn = createCallbackFcn(app, @CalcofDfCheckBoxValueChanged, true);
+            app.CalcofDfCheckBox.Visible = 'off';
+            app.CalcofDfCheckBox.Text = 'Calc of Df';
+            app.CalcofDfCheckBox.Position = [351 146 75 22];
+
+            % Create SfEditField
+            app.SfEditField = uieditfield(app.PointCheckPanel, 'numeric');
+            app.SfEditField.Limits = [0 Inf];
+            app.SfEditField.Visible = 'off';
+            app.SfEditField.Position = [57 61 97 22];
+
+            % Create IfEditField
+            app.IfEditField = uieditfield(app.PointCheckPanel, 'numeric');
+            app.IfEditField.Limits = [0 Inf];
+            app.IfEditField.Visible = 'off';
+            app.IfEditField.Position = [57 80 97 22];
+
+            % Create IGEditField
+            app.IGEditField = uieditfield(app.PointCheckPanel, 'numeric');
+            app.IGEditField.Limits = [0 Inf];
+            app.IGEditField.Position = [56 121 100 22];
+
+            % Create CalcofIGCheckBox
+            app.CalcofIGCheckBox = uicheckbox(app.PointCheckPanel);
+            app.CalcofIGCheckBox.ValueChangedFcn = createCallbackFcn(app, @CalcofIGCheckBoxValueChanged, true);
+            app.CalcofIGCheckBox.Text = 'Calc of IG';
+            app.CalcofIGCheckBox.Position = [65 145 75 22];
+
+            % Create VariablesforSafetyCurvePanel
+            app.VariablesforSafetyCurvePanel = uipanel(app.IEEETab);
+            app.VariablesforSafetyCurvePanel.TitlePosition = 'centertop';
+            app.VariablesforSafetyCurvePanel.Title = 'Variables for Safety Curve';
+            app.VariablesforSafetyCurvePanel.BackgroundColor = [0.0588 1 1];
+            app.VariablesforSafetyCurvePanel.FontWeight = 'bold';
+            app.VariablesforSafetyCurvePanel.FontSize = 14;
+            app.VariablesforSafetyCurvePanel.Position = [-1 0 207 459];
+
+            % Create kgmsup1supEditFieldLabel
+            app.kgmsup1supEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.kgmsup1supEditFieldLabel.HorizontalAlignment = 'right';
+            app.kgmsup1supEditFieldLabel.Interpreter = 'html';
+            app.kgmsup1supEditFieldLabel.Position = [23 372 50 22];
+            app.kgmsup1supEditFieldLabel.Text = 'kg (m<sup>-1</sup>)';
+
+            % Create ktEditFieldLabel
+            app.ktEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.ktEditFieldLabel.HorizontalAlignment = 'right';
+            app.ktEditFieldLabel.Position = [26 350 46 22];
+            app.ktEditFieldLabel.Text = 'kt (p.u.)';
+
+            % Create ksEditFieldLabel
+            app.ksEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.ksEditFieldLabel.HorizontalAlignment = 'right';
+            app.ksEditFieldLabel.Position = [24 329 48 22];
+            app.ksEditFieldLabel.Text = 'ks (p.u.)';
+
+            % Create rsEditFieldLabel
+            app.rsEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.rsEditFieldLabel.HorizontalAlignment = 'right';
+            app.rsEditFieldLabel.Visible = 'off';
+            app.rsEditFieldLabel.Position = [24 252 48 22];
+            app.rsEditFieldLabel.Text = 'ρs (Ωm)';
+
+            % Create hsEditFieldLabel
+            app.hsEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.hsEditFieldLabel.HorizontalAlignment = 'right';
+            app.hsEditFieldLabel.Visible = 'off';
+            app.hsEditFieldLabel.Position = [33 232 39 22];
+            app.hsEditFieldLabel.Text = 'hs (m)';
+
+            % Create BodyResLabel
+            app.BodyResLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.BodyResLabel.HorizontalAlignment = 'right';
+            app.BodyResLabel.Position = [5 194 77 22];
+            app.BodyResLabel.Text = 'Body Res (Ω)';
+
+            % Create kEditFieldLabel
+            app.kEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.kEditFieldLabel.HorizontalAlignment = 'right';
+            app.kEditFieldLabel.Interpreter = 'html';
+            app.kEditFieldLabel.Position = [20 170 52 22];
+            app.kEditFieldLabel.Text = 'k (As<sup>0.5</sup>)';
+
+            % Create MingridcurLabel
+            app.MingridcurLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.MingridcurLabel.HorizontalAlignment = 'right';
+            app.MingridcurLabel.Position = [-2 135 87 22];
+            app.MingridcurLabel.Text = 'Min grid cur (A)';
+
+            % Create MaxgridcurEditFieldLabel
+            app.MaxgridcurEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.MaxgridcurEditFieldLabel.HorizontalAlignment = 'right';
+            app.MaxgridcurEditFieldLabel.Position = [1 114 87 22];
+            app.MaxgridcurEditFieldLabel.Text = 'Max grid cur (A)';
+
+            % Create rorRgDropDownLabel
+            app.rorRgDropDownLabel = uilabel(app.VariablesforSafetyCurvePanel);
+            app.rorRgDropDownLabel.HorizontalAlignment = 'right';
+            app.rorRgDropDownLabel.Position = [27 405 45 22];
+            app.rorRgDropDownLabel.Text = 'ρ or Rg';
+
+            % Create ClearPlotButton_2
+            app.ClearPlotButton_2 = uibutton(app.VariablesforSafetyCurvePanel, 'push');
+            app.ClearPlotButton_2.ButtonPushedFcn = createCallbackFcn(app, @ClearPlotButton_2Pushed, true);
+            app.ClearPlotButton_2.Position = [52 2 108 23];
+            app.ClearPlotButton_2.Text = 'Clear Plot';
+
+            % Create EstepButton
+            app.EstepButton = uibutton(app.VariablesforSafetyCurvePanel, 'push');
+            app.EstepButton.ButtonPushedFcn = createCallbackFcn(app, @EstepButtonPushed, true);
+            app.EstepButton.Position = [102 34 100 23];
+            app.EstepButton.Text = 'Estep';
+
+            % Create EtouchButton
+            app.EtouchButton = uibutton(app.VariablesforSafetyCurvePanel, 'push');
+            app.EtouchButton.ButtonPushedFcn = createCallbackFcn(app, @EtouchButtonPushed, true);
+            app.EtouchButton.Position = [1 34 100 23];
+            app.EtouchButton.Text = 'Etouch';
+
+            % Create PlotSafetyCurveButton
+            app.PlotSafetyCurveButton = uibutton(app.VariablesforSafetyCurvePanel, 'push');
+            app.PlotSafetyCurveButton.ButtonPushedFcn = createCallbackFcn(app, @PlotSafetyCurveButtonPushed, true);
+            app.PlotSafetyCurveButton.Position = [52 69 108 23];
+            app.PlotSafetyCurveButton.Text = 'Plot Safety Curve';
+
+            % Create MaxgridcurEditField
+            app.MaxgridcurEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.MaxgridcurEditField.Limits = [0 Inf];
+            app.MaxgridcurEditField.Position = [87 114 100 22];
+
+            % Create MingridcurEditField
+            app.MingridcurEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.MingridcurEditField.Tag = 'mingc';
+            app.MingridcurEditField.Position = [87 135 100 22];
+
+            % Create kEditField
+            app.kEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.kEditField.Limits = [0 Inf];
+            app.kEditField.Position = [87 173 100 22];
+
+            % Create BodyResEditField
+            app.BodyResEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.BodyResEditField.Limits = [0 Inf];
+            app.BodyResEditField.Position = [87 194 100 22];
+            app.BodyResEditField.Value = 1000;
+
+            % Create hsEditField
+            app.hsEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.hsEditField.Limits = [0 Inf];
+            app.hsEditField.Tag = 'hs';
+            app.hsEditField.Visible = 'off';
+            app.hsEditField.Position = [87 232 100 22];
+
+            % Create rsEditField
+            app.rsEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.rsEditField.Limits = [0 Inf];
+            app.rsEditField.Tag = 'rs';
+            app.rsEditField.Visible = 'off';
+            app.rsEditField.Position = [87 252 100 22];
+
+            % Create UseofrsCheckBox
+            app.UseofrsCheckBox = uicheckbox(app.VariablesforSafetyCurvePanel);
+            app.UseofrsCheckBox.ValueChangedFcn = createCallbackFcn(app, @UseofrsCheckBoxValueChanged, true);
+            app.UseofrsCheckBox.Text = 'Use of ρs';
+            app.UseofrsCheckBox.Position = [101 276 73 22];
+
+            % Create ksEditField
+            app.ksEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.ksEditField.Limits = [0 Inf];
+            app.ksEditField.Position = [87 329 100 22];
+
+            % Create ktEditField
+            app.ktEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.ktEditField.Limits = [0 Inf];
+            app.ktEditField.Position = [87 350 100 22];
+
+            % Create kgmsup1supEditField
+            app.kgmsup1supEditField = uieditfield(app.VariablesforSafetyCurvePanel, 'numeric');
+            app.kgmsup1supEditField.Limits = [0 Inf];
+            app.kgmsup1supEditField.Position = [87 372 100 22];
+
+            % Create rorRgDropDown
+            app.rorRgDropDown = uidropdown(app.VariablesforSafetyCurvePanel);
+            app.rorRgDropDown.Items = {'ρ', 'Rg'};
+            app.rorRgDropDown.Position = [87 405 100 22];
+            app.rorRgDropDown.Value = 'ρ';
+
+            % Create TimeCurrentCharacteristicsPanel
+            app.TimeCurrentCharacteristicsPanel = uipanel(app.IEEETab);
+            app.TimeCurrentCharacteristicsPanel.TitlePosition = 'centertop';
+            app.TimeCurrentCharacteristicsPanel.Title = 'Time-Current Characteristics';
+            app.TimeCurrentCharacteristicsPanel.BackgroundColor = [0.0588 1 1];
+            app.TimeCurrentCharacteristicsPanel.FontWeight = 'bold';
+            app.TimeCurrentCharacteristicsPanel.FontSize = 14;
+            app.TimeCurrentCharacteristicsPanel.Position = [-2 458 208 200];
+
+            % Create TimesEditFieldLabel
+            app.TimesEditFieldLabel = uilabel(app.TimeCurrentCharacteristicsPanel);
+            app.TimesEditFieldLabel.HorizontalAlignment = 'right';
+            app.TimesEditFieldLabel.Position = [21 138 49 22];
+            app.TimesEditFieldLabel.Text = 'Time (s)';
+
+            % Create CurrentAEditFieldLabel
+            app.CurrentAEditFieldLabel = uilabel(app.TimeCurrentCharacteristicsPanel);
+            app.CurrentAEditFieldLabel.HorizontalAlignment = 'right';
+            app.CurrentAEditFieldLabel.Position = [16 118 64 22];
+            app.CurrentAEditFieldLabel.Text = 'Current (A)';
+
+            % Create ClearPlotButton
+            app.ClearPlotButton = uibutton(app.TimeCurrentCharacteristicsPanel, 'push');
+            app.ClearPlotButton.ButtonPushedFcn = createCallbackFcn(app, @ClearPlotButtonPushed, true);
+            app.ClearPlotButton.Position = [49 24 118 23];
+            app.ClearPlotButton.Text = 'Clear Plot';
+
+            % Create PlotCharacteristicsButton
+            app.PlotCharacteristicsButton = uibutton(app.TimeCurrentCharacteristicsPanel, 'push');
+            app.PlotCharacteristicsButton.ButtonPushedFcn = createCallbackFcn(app, @PlotCharacteristicsButtonPushed, true);
+            app.PlotCharacteristicsButton.Position = [49 50 118 23];
+            app.PlotCharacteristicsButton.Text = 'Plot Characteristics';
+
+            % Create ImportDataButton
+            app.ImportDataButton = uibutton(app.TimeCurrentCharacteristicsPanel, 'push');
+            app.ImportDataButton.ButtonPushedFcn = createCallbackFcn(app, @ImportDataButtonPushed, true);
+            app.ImportDataButton.Position = [107 87 100 23];
+            app.ImportDataButton.Text = 'Import Data';
+
+            % Create AddPointButton
+            app.AddPointButton = uibutton(app.TimeCurrentCharacteristicsPanel, 'push');
+            app.AddPointButton.ButtonPushedFcn = createCallbackFcn(app, @AddPointButtonPushed, true);
+            app.AddPointButton.Position = [2 86 100 23];
+            app.AddPointButton.Text = 'Add Point';
+
+            % Create CurrentEditField
+            app.CurrentEditField = uieditfield(app.TimeCurrentCharacteristicsPanel, 'numeric');
+            app.CurrentEditField.Limits = [0 Inf];
+            app.CurrentEditField.Position = [85 118 102 22];
+
+            % Create TimeEditField
+            app.TimeEditField = uieditfield(app.TimeCurrentCharacteristicsPanel, 'numeric');
+            app.TimeEditField.Limits = [0 Inf];
+            app.TimeEditField.Position = [85 138 102 22];
+
+            % Create CENELECTab
+            app.CENELECTab = uitab(app.TabGroup);
+            app.CENELECTab.Title = 'CENELEC';
+            app.CENELECTab.ForegroundColor = [1 0 0];
+
+            % Create TimeCurrentandSafetyCurvePlotsPanel_2
+            app.TimeCurrentandSafetyCurvePlotsPanel_2 = uipanel(app.CENELECTab);
+            app.TimeCurrentandSafetyCurvePlotsPanel_2.TitlePosition = 'centertop';
+            app.TimeCurrentandSafetyCurvePlotsPanel_2.Title = 'Time-Current and Safety Curve Plots';
+            app.TimeCurrentandSafetyCurvePlotsPanel_2.BackgroundColor = [1 1 0.0667];
+            app.TimeCurrentandSafetyCurvePlotsPanel_2.FontWeight = 'bold';
+            app.TimeCurrentandSafetyCurvePlotsPanel_2.FontSize = 14;
+            app.TimeCurrentandSafetyCurvePlotsPanel_2.Position = [205 0 450 462];
+
+            % Create UIAxes4
+            app.UIAxes4 = uiaxes(app.TimeCurrentandSafetyCurvePlotsPanel_2);
+            title(app.UIAxes4, 'IG-ρtouch or IG-Rgtouch')
+            xlabel(app.UIAxes4, 'ρ or Rg (Ωm or Ω)')
+            ylabel(app.UIAxes4, 'IG (A)')
+            zlabel(app.UIAxes4, 'Z')
+            app.UIAxes4.Position = [4 13 439 194];
+
+            % Create UIAxes3
+            app.UIAxes3 = uiaxes(app.TimeCurrentandSafetyCurvePlotsPanel_2);
+            title(app.UIAxes3, 'Time-Current Characteristics')
+            xlabel(app.UIAxes3, 'Current (A)')
+            ylabel(app.UIAxes3, 'Time (s)')
+            zlabel(app.UIAxes3, 'Z')
+            app.UIAxes3.Position = [4 222 429 202];
+
+            % Create PointCheckPanel_2
+            app.PointCheckPanel_2 = uipanel(app.CENELECTab);
+            app.PointCheckPanel_2.TitlePosition = 'centertop';
+            app.PointCheckPanel_2.Title = 'Point Check';
+            app.PointCheckPanel_2.BackgroundColor = [1 1 0.0667];
+            app.PointCheckPanel_2.FontWeight = 'bold';
+            app.PointCheckPanel_2.FontSize = 14;
+            app.PointCheckPanel_2.Position = [204 461 450 197];
+
+            % Create IGEditFieldLabel_2
+            app.IGEditFieldLabel_2 = uilabel(app.PointCheckPanel_2);
+            app.IGEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.IGEditFieldLabel_2.Position = [14 118 37 22];
+            app.IGEditFieldLabel_2.Text = 'IG (A)';
+
+            % Create IfEditFieldLabel_2
+            app.IfEditFieldLabel_2 = uilabel(app.PointCheckPanel_2);
+            app.IfEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.IfEditFieldLabel_2.Visible = 'off';
+            app.IfEditFieldLabel_2.Position = [20 82 31 22];
+            app.IfEditFieldLabel_2.Text = 'If (A)';
+
+            % Create SfEditFieldLabel_2
+            app.SfEditFieldLabel_2 = uilabel(app.PointCheckPanel_2);
+            app.SfEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.SfEditFieldLabel_2.Visible = 'off';
+            app.SfEditFieldLabel_2.Position = [4 61 48 22];
+            app.SfEditFieldLabel_2.Text = 'Sf (p.u.)';
+
+            % Create DfEditFieldLabel_2
+            app.DfEditFieldLabel_2 = uilabel(app.PointCheckPanel_2);
+            app.DfEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.DfEditFieldLabel_2.Visible = 'off';
+            app.DfEditFieldLabel_2.Position = [277 120 48 22];
+            app.DfEditFieldLabel_2.Text = 'Df (p.u.)';
+
+            % Create XRratioEditField_2Label
+            app.XRratioEditField_2Label = uilabel(app.PointCheckPanel_2);
+            app.XRratioEditField_2Label.HorizontalAlignment = 'right';
+            app.XRratioEditField_2Label.Visible = 'off';
+            app.XRratioEditField_2Label.Position = [273 82 52 22];
+            app.XRratioEditField_2Label.Text = 'X/R ratio';
+
+            % Create tfEditFieldLabel_2
+            app.tfEditFieldLabel_2 = uilabel(app.PointCheckPanel_2);
+            app.tfEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.tfEditFieldLabel_2.Visible = 'off';
+            app.tfEditFieldLabel_2.Position = [296 61 29 22];
+            app.tfEditFieldLabel_2.Text = 'tf (s)';
+
+            % Create rEditFieldLabel_2
+            app.rEditFieldLabel_2 = uilabel(app.PointCheckPanel_2);
+            app.rEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.rEditFieldLabel_2.Position = [139 38 42 22];
+            app.rEditFieldLabel_2.Text = 'ρ (Ωm)';
+
+            % Create PlotPointsButton_2
+            app.PlotPointsButton_2 = uibutton(app.PointCheckPanel_2, 'push');
+            app.PlotPointsButton_2.ButtonPushedFcn = createCallbackFcn(app, @PlotPointsButton_2Pushed, true);
+            app.PlotPointsButton_2.Position = [196 6 100 23];
+            app.PlotPointsButton_2.Text = 'Plot Point(s)';
+
+            % Create rEditField_2
+            app.rEditField_2 = uieditfield(app.PointCheckPanel_2, 'numeric');
+            app.rEditField_2.Position = [196 38 100 22];
+
+            % Create tfEditField_2
+            app.tfEditField_2 = uieditfield(app.PointCheckPanel_2, 'numeric');
+            app.tfEditField_2.Visible = 'off';
+            app.tfEditField_2.Position = [340 61 100 22];
+
+            % Create XRratioEditField_2
+            app.XRratioEditField_2 = uieditfield(app.PointCheckPanel_2, 'numeric');
+            app.XRratioEditField_2.Visible = 'off';
+            app.XRratioEditField_2.Position = [340 82 100 22];
+
+            % Create DfEditField_2
+            app.DfEditField_2 = uieditfield(app.PointCheckPanel_2, 'numeric');
+            app.DfEditField_2.Visible = 'off';
+            app.DfEditField_2.Position = [340 120 100 22];
+
+            % Create CalcofDfCheckBox_2
+            app.CalcofDfCheckBox_2 = uicheckbox(app.PointCheckPanel_2);
+            app.CalcofDfCheckBox_2.ValueChangedFcn = createCallbackFcn(app, @CalcofDfCheckBox_2ValueChanged, true);
+            app.CalcofDfCheckBox_2.Visible = 'off';
+            app.CalcofDfCheckBox_2.Text = 'Calc of Df';
+            app.CalcofDfCheckBox_2.Position = [351 147 75 22];
+
+            % Create SfEditField_2
+            app.SfEditField_2 = uieditfield(app.PointCheckPanel_2, 'numeric');
+            app.SfEditField_2.Visible = 'off';
+            app.SfEditField_2.Position = [54 61 100 22];
+
+            % Create IfEditField_2
+            app.IfEditField_2 = uieditfield(app.PointCheckPanel_2, 'numeric');
+            app.IfEditField_2.Visible = 'off';
+            app.IfEditField_2.Position = [54 82 100 22];
+
+            % Create IGEditField_2
+            app.IGEditField_2 = uieditfield(app.PointCheckPanel_2, 'numeric');
+            app.IGEditField_2.Position = [54 120 100 22];
+
+            % Create CalcofIGCheckBox_2
+            app.CalcofIGCheckBox_2 = uicheckbox(app.PointCheckPanel_2);
+            app.CalcofIGCheckBox_2.ValueChangedFcn = createCallbackFcn(app, @CalcofIGCheckBox_2ValueChanged, true);
+            app.CalcofIGCheckBox_2.Text = 'Calc of IG';
+            app.CalcofIGCheckBox_2.Position = [57 147 75 22];
+
+            % Create VariablesforSafetyCurvePanel_2
+            app.VariablesforSafetyCurvePanel_2 = uipanel(app.CENELECTab);
+            app.VariablesforSafetyCurvePanel_2.TitlePosition = 'centertop';
+            app.VariablesforSafetyCurvePanel_2.Title = 'Variables for Safety Curve';
+            app.VariablesforSafetyCurvePanel_2.BackgroundColor = [1 1 0.0667];
+            app.VariablesforSafetyCurvePanel_2.FontWeight = 'bold';
+            app.VariablesforSafetyCurvePanel_2.FontSize = 14;
+            app.VariablesforSafetyCurvePanel_2.Position = [-2 1 208 460];
+
+            % Create kgEditField_2Label
+            app.kgEditField_2Label = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.kgEditField_2Label.HorizontalAlignment = 'right';
+            app.kgEditField_2Label.Interpreter = 'html';
+            app.kgEditField_2Label.Position = [29 362 50 22];
+            app.kgEditField_2Label.Text = 'kg (m<sup>-1</sup>)';
+
+            % Create ktLabel
+            app.ktLabel = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.ktLabel.HorizontalAlignment = 'right';
+            app.ktLabel.Position = [33 341 46 22];
+            app.ktLabel.Text = 'kt (p.u.)';
+
+            % Create ksEditField_2Label
+            app.ksEditField_2Label = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.ksEditField_2Label.HorizontalAlignment = 'right';
+            app.ksEditField_2Label.Position = [32 320 48 22];
+            app.ksEditField_2Label.Text = 'ks (p.u.)';
+
+            % Create rsEditFieldLabel_2
+            app.rsEditFieldLabel_2 = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.rsEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.rsEditFieldLabel_2.Visible = 'off';
+            app.rsEditFieldLabel_2.Position = [26 253 48 22];
+            app.rsEditFieldLabel_2.Text = 'ρs (Ωm)';
+
+            % Create HFEditFieldLabel
+            app.HFEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.HFEditFieldLabel.HorizontalAlignment = 'right';
+            app.HFEditFieldLabel.Position = [26 199 52 22];
+            app.HFEditFieldLabel.Text = 'HF (p.u.)';
+
+            % Create BFEditFieldLabel
+            app.BFEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.BFEditFieldLabel.HorizontalAlignment = 'right';
+            app.BFEditFieldLabel.Position = [25 179 52 22];
+            app.BFEditFieldLabel.Text = 'BF (p.u.)';
+
+            % Create MingridcurEditFieldLabel
+            app.MingridcurEditFieldLabel = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.MingridcurEditFieldLabel.HorizontalAlignment = 'right';
+            app.MingridcurEditFieldLabel.Position = [-3 142 87 22];
+            app.MingridcurEditFieldLabel.Text = 'Min grid cur (A)';
+
+            % Create MaxgridcurEditFieldLabel_2
+            app.MaxgridcurEditFieldLabel_2 = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.MaxgridcurEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.MaxgridcurEditFieldLabel_2.Position = [-3 125 90 22];
+            app.MaxgridcurEditFieldLabel_2.Text = 'Max grid cur (A)';
+
+            % Create rorRgDropDownLabel_2
+            app.rorRgDropDownLabel_2 = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.rorRgDropDownLabel_2.HorizontalAlignment = 'right';
+            app.rorRgDropDownLabel_2.Position = [29 405 45 22];
+            app.rorRgDropDownLabel_2.Text = 'ρ or Rg';
+
+            % Create RF1Label
+            app.RF1Label = uilabel(app.VariablesforSafetyCurvePanel_2);
+            app.RF1Label.HorizontalAlignment = 'right';
+            app.RF1Label.Position = [27 221 48 22];
+            app.RF1Label.Text = 'RF1 (Ω)';
+
+            % Create ClearPlotButton_4
+            app.ClearPlotButton_4 = uibutton(app.VariablesforSafetyCurvePanel_2, 'push');
+            app.ClearPlotButton_4.ButtonPushedFcn = createCallbackFcn(app, @ClearPlotButton_4Pushed, true);
+            app.ClearPlotButton_4.Position = [50 12 107 23];
+            app.ClearPlotButton_4.Text = 'Clear Plot';
+
+            % Create UVTpButton
+            app.UVTpButton = uibutton(app.VariablesforSafetyCurvePanel_2, 'push');
+            app.UVTpButton.ButtonPushedFcn = createCallbackFcn(app, @UVTpButtonPushed, true);
+            app.UVTpButton.Position = [49 46 108 23];
+            app.UVTpButton.Text = 'UVTp';
+
+            % Create PlotSafetyCurveButton_2
+            app.PlotSafetyCurveButton_2 = uibutton(app.VariablesforSafetyCurvePanel_2, 'push');
+            app.PlotSafetyCurveButton_2.ButtonPushedFcn = createCallbackFcn(app, @PlotSafetyCurveButton_2Pushed, true);
+            app.PlotSafetyCurveButton_2.Position = [50 84 108 23];
+            app.PlotSafetyCurveButton_2.Text = 'Plot Safety Curve';
+
+            % Create MaxgridcurEditField_2
+            app.MaxgridcurEditField_2 = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.MaxgridcurEditField_2.Limits = [0 Inf];
+            app.MaxgridcurEditField_2.Position = [88 123 100 22];
+
+            % Create MingridcurEditField_2
+            app.MingridcurEditField_2 = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.MingridcurEditField_2.Tag = 'mingc';
+            app.MingridcurEditField_2.Position = [88 142 100 22];
+
+            % Create BFEditField
+            app.BFEditField = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.BFEditField.Limits = [0 Inf];
+            app.BFEditField.Position = [88 179 100 22];
+
+            % Create HFEditField
+            app.HFEditField = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.HFEditField.Limits = [0 Inf];
+            app.HFEditField.Position = [88 200 100 22];
+
+            % Create RF1EditField
+            app.RF1EditField = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.RF1EditField.Limits = [0 Inf];
+            app.RF1EditField.Tag = 'RF1';
+            app.RF1EditField.Position = [88 221 100 22];
+            app.RF1EditField.Value = 1000;
+
+            % Create rsEditField_2
+            app.rsEditField_2 = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.rsEditField_2.Limits = [0 Inf];
+            app.rsEditField_2.Tag = 'rs';
+            app.rsEditField_2.Visible = 'off';
+            app.rsEditField_2.Position = [89 253 100 22];
+
+            % Create UseofrsCheckBox_2
+            app.UseofrsCheckBox_2 = uicheckbox(app.VariablesforSafetyCurvePanel_2);
+            app.UseofrsCheckBox_2.ValueChangedFcn = createCallbackFcn(app, @UseofrsCheckBox_2ValueChanged, true);
+            app.UseofrsCheckBox_2.Text = 'Use of ρs';
+            app.UseofrsCheckBox_2.Position = [101 274 73 22];
+
+            % Create ksEditField_2
+            app.ksEditField_2 = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.ksEditField_2.Limits = [0 Inf];
+            app.ksEditField_2.Position = [88 320 100 22];
+
+            % Create ktEditField_2
+            app.ktEditField_2 = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.ktEditField_2.Limits = [0 Inf];
+            app.ktEditField_2.Position = [88 341 100 22];
+
+            % Create kgEditField_2
+            app.kgEditField_2 = uieditfield(app.VariablesforSafetyCurvePanel_2, 'numeric');
+            app.kgEditField_2.Limits = [0 Inf];
+            app.kgEditField_2.Position = [88 362 100 22];
+
+            % Create rorRgDropDown_2
+            app.rorRgDropDown_2 = uidropdown(app.VariablesforSafetyCurvePanel_2);
+            app.rorRgDropDown_2.Items = {'ρ', 'Rg'};
+            app.rorRgDropDown_2.Position = [89 405 100 22];
+            app.rorRgDropDown_2.Value = 'ρ';
+
+            % Create TimeCurrentCharacteristicsPanel_2
+            app.TimeCurrentCharacteristicsPanel_2 = uipanel(app.CENELECTab);
+            app.TimeCurrentCharacteristicsPanel_2.TitlePosition = 'centertop';
+            app.TimeCurrentCharacteristicsPanel_2.Title = 'Time-Current Characteristics';
+            app.TimeCurrentCharacteristicsPanel_2.BackgroundColor = [1 1 0.0667];
+            app.TimeCurrentCharacteristicsPanel_2.FontWeight = 'bold';
+            app.TimeCurrentCharacteristicsPanel_2.FontSize = 14;
+            app.TimeCurrentCharacteristicsPanel_2.Position = [-3 460 209 198];
+
+            % Create TimeEditField_2Label
+            app.TimeEditField_2Label = uilabel(app.TimeCurrentCharacteristicsPanel_2);
+            app.TimeEditField_2Label.HorizontalAlignment = 'right';
+            app.TimeEditField_2Label.Position = [22 136 49 22];
+            app.TimeEditField_2Label.Text = 'Time (s)';
+
+            % Create CurrentEditField_2Label
+            app.CurrentEditField_2Label = uilabel(app.TimeCurrentCharacteristicsPanel_2);
+            app.CurrentEditField_2Label.HorizontalAlignment = 'right';
+            app.CurrentEditField_2Label.Position = [15 118 64 22];
+            app.CurrentEditField_2Label.Text = 'Current (A)';
+
+            % Create ClearPlotButton_3
+            app.ClearPlotButton_3 = uibutton(app.TimeCurrentCharacteristicsPanel_2, 'push');
+            app.ClearPlotButton_3.ButtonPushedFcn = createCallbackFcn(app, @ClearPlotButton_3Pushed, true);
+            app.ClearPlotButton_3.Position = [46 15 118 23];
+            app.ClearPlotButton_3.Text = 'Clear Plot';
+
+            % Create PlotCharacteristicsButton_2
+            app.PlotCharacteristicsButton_2 = uibutton(app.TimeCurrentCharacteristicsPanel_2, 'push');
+            app.PlotCharacteristicsButton_2.ButtonPushedFcn = createCallbackFcn(app, @PlotCharacteristicsButton_2Pushed, true);
+            app.PlotCharacteristicsButton_2.Position = [46 45 118 23];
+            app.PlotCharacteristicsButton_2.Text = 'Plot Characteristics';
+
+            % Create ImportDataButton_2
+            app.ImportDataButton_2 = uibutton(app.TimeCurrentCharacteristicsPanel_2, 'push');
+            app.ImportDataButton_2.ButtonPushedFcn = createCallbackFcn(app, @ImportDataButton_2Pushed, true);
+            app.ImportDataButton_2.Position = [106 79 100 23];
+            app.ImportDataButton_2.Text = 'Import Data';
+
+            % Create AddPointButton_2
+            app.AddPointButton_2 = uibutton(app.TimeCurrentCharacteristicsPanel_2, 'push');
+            app.AddPointButton_2.ButtonPushedFcn = createCallbackFcn(app, @AddPointButton_2Pushed, true);
+            app.AddPointButton_2.Position = [2 79 100 23];
+            app.AddPointButton_2.Text = 'Add Point';
+
+            % Create CurrentEditField_2
+            app.CurrentEditField_2 = uieditfield(app.TimeCurrentCharacteristicsPanel_2, 'numeric');
+            app.CurrentEditField_2.Limits = [0 Inf];
+            app.CurrentEditField_2.Position = [86 117 103 22];
+
+            % Create TimeEditField_2
+            app.TimeEditField_2 = uieditfield(app.TimeCurrentCharacteristicsPanel_2, 'numeric');
+            app.TimeEditField_2.Limits = [0 Inf];
+            app.TimeEditField_2.Position = [86 136 103 22];
+
+            % Show the figure after all components are created
+            app.SafetyAssessmentSoftwareAppUIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = SafetyAssessmentSoftware
+
+            % Create UIFigure and components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.SafetyAssessmentSoftwareAppUIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.SafetyAssessmentSoftwareAppUIFigure)
+        end
+    end
+end
+
