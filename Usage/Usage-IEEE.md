@@ -34,10 +34,10 @@ You are now ready to proceed with the steps specific to the IEEE standard.
 5. Calculation of maximum allowable voltage limits according to IEEE Std 80. **Selection by the user, Yes or No:** Use of high resistivity surface material?
 6. **If yes: (user input)** resistivity, ρs, and thickness of the surface material layer, hs.
 7. **(user input)** Resistance of the human body (typical value 1000 Ω).
-8. **(user input)** k factor related to tolerable electric shock energy (typical values 0.116 and 0.157 As0.5)
+8. **(user input)** k factor related to tolerable electric shock energy (typical values 0.116 and 0.157 As^0.5).
 9. **(user input)** Maximum value of maximum grid current for the construction of the figures showing the safety performance curves. Input of the minimum value as well.
 
-**Up to this point here: The safety performance curves shown in the paper can be plotted.
+**Up to this point here: The safety performance curves can be plotted.
 The above refer to a specific typical configuration.**
 
 10. **Selection by the user** of the case to be evaluated: soil resistivity ρ (or ground resistance Rg).
@@ -51,4 +51,10 @@ The above refer to a specific typical configuration.**
 **The above refer to specific installations of the typical grounding configuration. 
 There could be several of those in a system.** 
 
+
+### Output Data
+
+1. Plotting of the basic safety performance curves (IG-ρtouch and IG-ρstep curves) and (IG-Rg,touch and IG-Rg,step curves). These include all relevant curves corresponding to the protective devices of the system.
+
+2. Addition of point(s) showing the corresponding case(s) examined. The plot for each specific case include only the relevant curves corresponding to the protective devices of this case.
 
