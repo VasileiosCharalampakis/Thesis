@@ -7,7 +7,7 @@ To successfully use the Safety Assessment Software with the CENELEC standard, pl
 ### 1. MATLAB Installation
 Make sure you have MATLAB installed on your computer. You can download it from the official [MathWorks website](https://www.mathworks.com/products/matlab.html).
 
-### 2. Required Files
+### 2. Required Files - [AppFiles](../AppFiles/)
 Ensure the following files are in the same directory or project folder within MATLAB:
 - `SafetyAssessmentSoftware.mlapp`
 - `UTp(tf).txt`
@@ -27,14 +27,14 @@ You are now ready to proceed with the steps specific to the CENELEC standard.
 ## How to Use
 ### Input Data
 
-1. **(user input)** Time-current characteristic(s) of the protective device(s).
+1. **(user input)** Time-current characteristic(s) of the protective device(s). You can use `Text.txt`, `Test2.txt`, `Text3.txt` for inputs here as an example.
 2. **(user input)** Geometric proportionality factor, kg.
 3. **(user input)** Touch voltage proportionality factor, kt.
 4. **(user input)** Step voltage proportionality factor, ks.
 5. Calculation of maximum allowable voltage limit according to CENELEC EN 50522. **Selection by the user, Yes or No:** Use of high resistivity surface material?
 6. If yes: **(user input)** resistivity, ρs.
 7. **(user input)** Resistance of footwear, RF1 (typical value 1000 Ω).
-8. Curves from the IEC standard: (I) IB(tf), (II) ZT(UT).
+8. Curves from the IEC standard: (I) IB(tf), (II) ZT(UT). Code using `UTp(tf)_new.txt` and `ZT(UTp)_new.txt`. 
 9. **(user input)** Heart current factor, HF, and body factor BF.
 10. **(user input)** Maximum value of maximum grid current for the construction of the figures showing the safety performance curves. Input of the minimum value as well.
 
