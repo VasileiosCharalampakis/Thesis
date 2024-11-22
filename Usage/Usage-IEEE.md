@@ -62,7 +62,7 @@ There could be several of those in a system.**
 3. Addition of point(s) showing the corresponding case(s) examined. The plot for each specific case include only the relevant curves corresponding to the protective devices of this case.
 
 
-### Check out [Graphs-IEEE](Graphs-IEEE/)
+### Check out [Graphs-IEEE](Graphs-IEEE/)!
 
 
 
