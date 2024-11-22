@@ -27,7 +27,7 @@ You are now ready to proceed with the steps specific to the IEEE standard.
 ## How to Use
 ### Input Data
 
-1. **(user input)** Time-current characteristic(s) of the protective device(s). 
+1. **(user input)** Time-current characteristic(s) of the protective device(s). You can use 'Test.txt', 'Test2.txt', 'Test3.txt' for inputs here as an example.
 2. **(user input)** Geometric proportionality factor, kg.
 3. **(user input)** Touch voltage proportionality factor, kt.
 4. **(user input)** Step voltage proportionality factor, ks.
