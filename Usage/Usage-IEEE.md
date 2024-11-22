@@ -7,7 +7,7 @@ To successfully use the Safety Assessment Software with the IEEE standard, pleas
 ### 1. MATLAB Installation
 Make sure you have MATLAB installed on your computer. You can download it from the official [MathWorks website](https://www.mathworks.com/products/matlab.html).
 
-### 2. Required Files - [AppFiles](AppFiles/)
+### 2. Required Files - [AppFiles](AppFiles)
 Ensure the following files are in the same directory or project folder within MATLAB:
 - `SafetyAssessmentSoftware.mlapp`
 - `UTp(tf)_new.txt`
